@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% block style %}{% endblock %}
+<html lang="en">
+  <head>
+  {% block head %}{% endblock %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href={% static "hearthstone.ico"%}>
+    <title>{% block title %}NOT!!!{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href={% static "bootstrap-3.3.2/dist/css/bootstrap.min.css" %} rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <!-- Custom styles for this template -->
+    <link href={% static "starter-template.css" %} rel="stylesheet">
+  </head>
+
+  <body style="width:100%;height:100%;">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        {% if user.id != None %}
+        <div class="navbar-header">
+          <a class="navbar-brand" style="color:white;" href="/hss/list/">Never Overtime</a>
+        </div>
+        {% endif %}
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav pull-right">
+            {% if user.id == None %}
+              <li><a href="/register" style="color:white;">注册</a></li>
+              <li><a href="/login" style="color:white;">登录</a></li>
+            {% else %}
+              <li><a style="color:white;">{{ user.username }}</a></li>
+              <li><a href="/logout_view" style="color:white;">登出</a></li>
+            {% endif %} 
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    {% block content %}
+    <div class="container">
+      <div class="starter-template">
+        <h1>This is a base html template</h1>
+        <p class="lead">almost all the html files should extend me</p>
+      </div>
+    </div><!-- /.container -->
+    {% endblock %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src={% static "jquery-1.11.2.min.js" %}></script>
+    <script src={% static "bootstrap-3.3.2/dist/js/bootstrap.min.js" %}></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    {% block script %}{% endblock %}
+  </body>
+</html>
