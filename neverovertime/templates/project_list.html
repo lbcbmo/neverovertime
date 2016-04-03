@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div style="margin:50px 200px 0px 200px">
+        <table class="table table-bordered">
+            <tr>
+                <th class="col-md-2 text-center">项目名称</th>
+                <th class="col-md-1 text-center">项目经理</th>
+                <th class="col-md-1 text-center">项目状态</th>
+                <th class="col-md-1 text-center">持续时间</th>
+                <th class="col-md-1 text-center">预期剩余时间</th>
+                <th class="col-md-1 text-center">创建时间</th>
+                <th class="col-md-1 text-center">最后更新</th>
+                <th class="col-md-1 text-center">预期结束时间</th>
+                <th class="col-md-1 text-center">实际结束时间</th>
+            </tr>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.name }}</td>
+                <td>{{ project.manager.username }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
