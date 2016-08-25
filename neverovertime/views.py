@@ -10,3 +10,10 @@ def project_list(request):
     projects = Project.objects.all()
 
     return render(request, 'project_list.html', {'projects': projects})
+
+
+def add_project(request):
+    """
+    add a project
+    """
+    pass

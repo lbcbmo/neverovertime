@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^projects/', 'neverovertime.views.project_list')
+    url(r'^projects/', 'neverovertime.views.project_list'),
+    url(r'^addproject/', 'neverovertime.views.add_project')
 )
